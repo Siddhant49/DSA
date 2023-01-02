@@ -76,16 +76,13 @@ public class TreeNode {
         isSingleAndPath(node.right, result);
     }
 
-    public int countSingleParent(TreeNode node, Integer answer) {
-        if (node.left == null && !(node.right == null))
-            answer++;
-        if (node.right == null && !(node.left == null))
-            answer++;
-        if (node.left!=null)
-            countSingleParent(node.left, answer);
-        if (node.right!=null)
-            countSingleParent(node.right, answer);
-        return answer;
+    public void countSingleParent(TreeNode node, List<Integer> result) {
+        if (node == null || (node.left == null && node.right == null))
+            return;
+        if (node.left == null  || node.right == null)
+            result.add(node.val);
+        countSingleParent(node.left, result);
+        countSingleParent(node.right, result);
     }
 
     public static void nodeToLeafPathList(TreeNode root, List<ArrayList<Integer>> result, List<Integer> path) {

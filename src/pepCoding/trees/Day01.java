@@ -56,8 +56,9 @@ public class Day01 {
         oneParent.forEach(node -> System.out.print(node + "\t"));
         System.out.println();
         System.out.println("Count single parent");
-        int countSingleParent = root.countSingleParent(root, 0);
-        System.out.println(countSingleParent); //fix please!!!!
+        List<Integer> countSingleParent = new ArrayList<>();
+        root.countSingleParent(root, countSingleParent);
+        System.out.println(countSingleParent.size()); //fix please!!!!
         System.out.println("getListOfPathOfLeaf");
         List<ArrayList<Integer>> listOfPathOfLeaf = root.getListOfPathOfLeaf(root);
         listOfPathOfLeaf.forEach(integers -> {
